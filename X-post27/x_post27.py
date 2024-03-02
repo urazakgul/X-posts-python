@@ -17,29 +17,29 @@ def regression_repainting(df, logarithmic=True, initial_sample_size=50, signific
     df = df.reset_index()
 
     play_button = {
-        "args": [
+        'args': [
             None,
             {
-                "frame": {"duration": 300, "redraw": True},
-                "fromcurrent": True,
-                "transition": {"duration": 50,"easing": "quadratic-in-out"}
+                'frame': {'duration': 300, 'redraw': True},
+                'fromcurrent': True,
+                'transition': {'duration': 50,'easing': 'quadratic-in-out'}
             }
         ],
-        "label": "Play",
-        "method": "animate"
+        'label': 'Play',
+        'method': 'animate'
     }
 
     pause_button = {
-        "args": [
+        'args': [
             [None],
             {
-                "frame": {"duration": 0, "redraw": False},
-                "mode": "immediate",
-                "transition": {"duration": 0}
+                'frame': {'duration': 0, 'redraw': False},
+                'mode': 'immediate',
+                'transition': {'duration': 0}
             }
         ],
-        "label": "Pause",
-        "method": "animate"
+        'label': 'Pause',
+        'method': 'animate'
     }
 
     initial_plot = go.Candlestick(
@@ -194,18 +194,18 @@ def regression_repainting(df, logarithmic=True, initial_sample_size=50, signific
         data=[initial_plot] + reg_lines,
         layout=go.Layout(
             xaxis=dict(title='', rangeslider=dict(visible=False)),
-            title="Repainting in Regression Strategies",
+            title='Repainting in Regression Strategies',
             width=900,
             height=650,
             updatemenus=[
             dict(
-                type="buttons",
+                type='buttons',
                 buttons=[play_button, pause_button],
-                direction="left",
+                direction='left',
                 x=0.5,
                 y=1.15,
-                xanchor="center",
-                yanchor="top",
+                xanchor='center',
+                yanchor='top',
             )
             ]
         ),
